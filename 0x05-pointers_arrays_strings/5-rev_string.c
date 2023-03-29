@@ -11,7 +11,7 @@ void rev_string(char *s)
 	
 	a = 0;
 
-	while (s[a] =! '\0')
+	while (s[a] != '\0')
 	{
 		a++;
 	}
@@ -20,15 +20,15 @@ void rev_string(char *s)
 
 	char t[len];
 	
-	for (a = len - 1, a >=0, a--)
+	for (a = len - 1; a >=0; a--)
 	{
-		for (b = 0, b <= len, b++)
+		for (b = 0; b <= len; b++)
 		{
 			t[b] = s[a];
 		}
 	}
 
-	for (b = 0, b <= len, b++)
+	for (b = 0; b <= len; b++)
 	{
 		s[b] = t[b];
 	}
