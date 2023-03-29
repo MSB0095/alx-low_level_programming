@@ -18,8 +18,8 @@ void rev_string(char *s)
 
 	len = a;
 
-	char t[];
-	
+	char* t;
+	t = (int*)malloc(sizeof(int)*items);
 	for (a = len - 1; a >=0; a--)
 	{
 		for (b = 0; b <= len; b++)
@@ -32,4 +32,5 @@ void rev_string(char *s)
 	{
 		s[b] = t[b];
 	}
+	
 }
