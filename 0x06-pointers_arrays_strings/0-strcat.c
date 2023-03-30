@@ -13,7 +13,7 @@ char *_strcat(char *dest, char *src)
 
 	lendest = strlen(dest);
 	lensrc = strlen(src);
-	len = lensrc + lendest - 1;
+	len = lensrc + lendest - 2;
 	for (i = 0;i <= lendest;j++)
 	{
 		while(j <= len)
