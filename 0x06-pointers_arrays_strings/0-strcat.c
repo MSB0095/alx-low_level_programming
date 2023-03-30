@@ -14,10 +14,10 @@ char *_strcat(char *dest, char *src)
 	lendest = strlen(dest);
 	lensrc = strlen(src);
 	len = lensrc + lendest - 2;
-	j = 0;
+	j = lensrc;
 	for (i = 0;i < lendest;i++)
 	{
-		while(j <= lensrc)
+		while(j <= len)
 		{
 			dest[i] = src[j];
 			j++;
