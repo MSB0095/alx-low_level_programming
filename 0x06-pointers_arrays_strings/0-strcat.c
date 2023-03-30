@@ -14,7 +14,7 @@ char *_strcat(char *dest, char *src)
 	lendest = strlen(dest);
 	lensrc = strlen(src);
 	len = lensrc + lendest - 2;
-	i = lensrc - 1;
+	i = lendest - 1;
 	j = 0;
 	for (i < len;i++)
 	{
