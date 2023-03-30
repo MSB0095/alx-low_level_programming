@@ -14,16 +14,17 @@ char *_strcat(char *dest, char *src)
 	lendest = strlen(dest);
 	lensrc = strlen(src);
 	len = lensrc + lendest - 2;
-	j = lensrc;
-	for (i = 0;i < lendest;i++)
+	i = lensrc - 1;
+	j = 0;
+	for (i < len;i++)
 	{
-		while(j <= len)
+		while(j <= lensrc)
 		{
 			dest[i] = src[j];
 			j++;
 		}
 	}
-	dest[lendest] = '\0';
+	dest[len] = '\0';
 	return (dest);
 }
 
