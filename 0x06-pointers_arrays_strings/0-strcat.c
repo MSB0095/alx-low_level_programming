@@ -14,7 +14,7 @@ char *_strcat(char *dest, char *src)
 	lendest = strlen(dest);
 	lensrc = strlen(src);
 	len = lensrc + lendest - 2;
-	for (i = 0;i <= lendest;j++)
+	for (i = 0;i < lendest;j++)
 	{
 		while(j <= len)
 		{
@@ -22,6 +22,7 @@ char *_strcat(char *dest, char *src)
 			j++;
 		}
 	}
-	return (*dest);
+	dest[lendest] = '\0';
+	return (dest);
 }
 
