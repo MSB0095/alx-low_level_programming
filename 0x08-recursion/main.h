@@ -6,11 +6,6 @@
  * This is the header file
 */
 void _putchar(char c);
-void _putchar(char c)
-{
-    printf("%c",c);
-}
-
 void _puts_recursion(char *s);
 
 #endif
