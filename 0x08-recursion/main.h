@@ -7,8 +7,8 @@
 */
 void _putchar(char c)
 {
-    putchar(c);
-};
+    printf("%c",c);
+}
 
 void _puts_recursion(char *s);
 
