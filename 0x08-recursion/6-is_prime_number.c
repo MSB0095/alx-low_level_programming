@@ -13,7 +13,7 @@ int checkprime(int a, int b)
 	else if (a > b / 2)
 		return (1);
 	else
-		return (check(a + 1, b));
+		return (checkprime(a + 1, b));
 }
 
 /**
@@ -26,5 +26,5 @@ int is_prime_number(int n)
 {
 	if (n == 2)
 		return (1);
-	return (check(2, n));
+	return (checkprime(2, n));
 }
