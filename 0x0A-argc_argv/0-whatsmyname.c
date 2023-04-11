@@ -1,13 +1,12 @@
 #include "main.h"
-
 /**
- * main - prints the program's path 
- * @argc: arguments count
- * @argv: arguments vector
- * 
+ * main - prints its name, followed by a new line.
+ * @argc: argument count
+ * @argv: arguments
+ *
  * Return: 0
-*/
-int main(int argc, char *argv[])
+ */
+int main(int argc, char **argv)
 {
 	(void)argc;
 
