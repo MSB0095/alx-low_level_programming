@@ -7,8 +7,9 @@
  *
  * Return: always 0
 */
-int main(int argc)
+int main(int argc, char *argv[])
 {
+	(void)argv;
 	int arg;
 
 	arg = argc - 1;
