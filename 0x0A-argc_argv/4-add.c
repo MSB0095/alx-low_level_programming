@@ -1,28 +1,37 @@
 #include "main.h"
 
 /**
- * main - multiplies the two parameters
- * @argc: arguments count
- * @argv: arguments vector
+ * main - adds positive numbers.
+ * @argc: argument count
+ * @argv: arguments
  *
  * Return: 0
-*/
-int main(int argc, char *argv[])
+ */
+int main(int argc, char **argv)
 {
-	if (argc != 3)
-	{
-		printf("Error\n");
-		return (1);
-	}
-	else
-	{
-		unsigned int a, b, c;
+	int i, n, sum = 0;
+	char *flag;
 
-		a = atoi(argv[1]);
-		b = atoi(argv[2]);
-		c = a + b;
-		printf("%d\n", c);
+	if (argc < 2)
+	{
+		printf("0\n");
 		return (0);
-
 	}
+
+	for (i = 1; argv[i]; i++)
+	{
+		n = strtol(argv[i], &flag, 10);
+		if (*flag)
+		{
+			printf("Error\n");
+			return (1);
+		}
+		else
+		{
+			sum += n;
+		}
+	}
+	printf("%d\n", sum);
+
+	return (0);
 }
