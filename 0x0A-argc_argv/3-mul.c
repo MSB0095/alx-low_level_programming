@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		unsigned int a, b, c;
+		int a, b, c;
 
 		a = atoi(argv[1]);
 		b = atoi(argv[2]);
