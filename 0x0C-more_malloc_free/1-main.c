@@ -1,26 +1,25 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * *string_nconcat - a function that concatenates two strings.
- * @s1: string 1
- * @s2: string 2
- * @n: number of bytes from string 2
+ * main - check the code
  *
- * Return: pointer to allocated memory
-*/
+ * Return: Always 0.
+ */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	int j = 0, i = 0;
 	char *concat = malloc(sizeof(s1) + n - 1);
 
-	while (s1[i] != '\0')
+	while(s1[i] != '\0')
 	{
 		concat[i] = s1[i];
 		i++;
 	}
 
-	while (s2[j] != '\0' && j <= n)
+	while(s2[j] != '\0' && j <= n)
 	{
 		concat[i] = s2[j];
 		i++;
@@ -37,3 +36,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 	}
 }
+
+
+int main(void)
+{
+    char *concat;
+
+    concat = string_nconcat("Best ", "School !!!", 6);
+    printf("%s\n", concat);
+    free(concat);
+    return (0);
+}
+
