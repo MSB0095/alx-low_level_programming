@@ -2,6 +2,7 @@
 #define DOG_H
 
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct dog - a structure that contains name age owner
@@ -19,4 +20,6 @@ struct dog
 };
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
+void print_dog(struct dog *d);
+
 #endif
