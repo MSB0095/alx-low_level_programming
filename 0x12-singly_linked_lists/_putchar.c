@@ -1,7 +1,4 @@
-#include "main.h"
-#include <unistd.h>
-
-
+#include "lists.h"
 
 /**
  *
