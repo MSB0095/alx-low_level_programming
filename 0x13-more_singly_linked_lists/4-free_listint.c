@@ -5,7 +5,6 @@
  *
  * @head: the head of list
  *
- * Return: nothing
 */
 
 void free_listint(listint_t *head)
