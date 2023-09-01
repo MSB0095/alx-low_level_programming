@@ -27,7 +27,7 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int l = _strlen(b);
 	int p = 1;
 
-	if (!b)
+	if (b == NULL)
 	{
 		return (0);
 	}
