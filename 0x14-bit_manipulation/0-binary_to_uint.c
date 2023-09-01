@@ -42,7 +42,7 @@ unsigned int binary_to_uint(const char *b)
 					n = n + p;
 				}
 				p = p * 2;
-				l--;
+				l = l - 1;
 			}
 			else if (b[l - 1] != '1' || b[l - 1] != '0')
 			{
