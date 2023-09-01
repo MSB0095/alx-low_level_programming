@@ -23,19 +23,32 @@ unsigned int _strlen(const char *s)
 
 unsigned int binary_to_uint(const char *b)
 {
-	int i;
-	unsigned int result, tmp, expo;
+	unsigned int n = 0;
+	unsigned int l = _strlen(b);
+	unsigned int p = 1;
 
-	if (!b)
-		return (0);
-	result = tmp = 0;
-	expo = 1;
-	for (i = _strlen(b) - 1; b[i]; i--, expo *= 2)
+	if (b[0] == '\0' || b == NULL)
 	{
-		if (b[i] != '0' && b[i] != '1')
-			return (0);
-		tmp = _stoi(b[i]);
-		result += tmp * expo;
+		return (0);
 	}
-	return (result);
+	else
+	{
+		while (l > 0)
+		{
+			if (b[l - 1] == '1' || b[l - 1] == '0')
+			{
+				if (b[l - 1] == '1')
+				{
+					n = n + p;
+				}
+				p = p * 2;
+				l = l - 1;
+			}
+			else if (b[l - 1] != '1' && b[l - 1] != '0')
+			{
+				return (0);
+			}
+		}
+		return (n);
+	}
 }
