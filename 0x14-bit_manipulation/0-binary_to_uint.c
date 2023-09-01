@@ -1,4 +1,4 @@
-#include "./main.h"
+#include "main.h"
 
 /**
  * _strlen - returns lenght of a string
@@ -33,7 +33,7 @@ unsigned int binary_to_uint(const char *b)
 	}
 	else
 	{
-		while (l > 1)
+		while (l > 0)
 		{
 			if (b[l - 1] == '1' || b[l - 1] == '0')
 			{
