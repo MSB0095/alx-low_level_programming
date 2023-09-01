@@ -44,7 +44,7 @@ unsigned int binary_to_uint(const char *b)
 				p = p * 2;
 				l = l - 1;
 			}
-			else if (b[l - 1] != '1' || b[l - 1] != '0')
+			else if (b[l - 1] != '1' && b[l - 1] != '0')
 			{
 				return (0);
 			}
