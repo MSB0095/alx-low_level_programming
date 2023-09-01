@@ -33,7 +33,7 @@ unsigned int binary_to_uint(const char *b)
 	}
 	else
 	{
-		while (l > 0)
+		while (l > 1)
 		{
 			if (b[l - 1] == '1' || b[l - 1] == '0')
 			{
