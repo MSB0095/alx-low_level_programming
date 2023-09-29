@@ -2,7 +2,7 @@
 
 /**
  * set_bit - a function that sets a bit to 1
- * 
+ *
  * @n: the number
  * @index: the index
  * Return: 1 if success
