@@ -3,8 +3,8 @@
 /**
  * read_textfile - reads a text file and
  *  prints it to the POSIX standard output.
- * @filename: 
- * @letters:
+ * @filename: file to write
+ * @letters: number of letters
  * Return: the actual number of letters
  *  it could read and print
 */
