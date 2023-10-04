@@ -11,7 +11,7 @@
 int main(int ac, char **av)
 {
 	char *buf[BUFSIZE];
-	int ffrom, fto, wr, c1, c2;
+	int ffrom, fto, c1, c2;
 	ssize_t rd;
 
 	if (ac != 3)
@@ -31,7 +31,7 @@ int main(int ac, char **av)
 
 		exit(99);
 	}
-	while (rd = read(ffrom, buf, BUFSIZE) > 0)
+	while ((rd = read(ffrom, buf, BUFSIZE)) > 0)
 	{
 		if (write(fto, buf, rd) != rd)
 		{
