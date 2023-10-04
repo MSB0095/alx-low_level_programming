@@ -10,23 +10,46 @@
 
 int main(int ac, char **av)
 {
-	char *buf;
-	int op, rd, wr;
+	char *buf[BUFSIZE];
+	int ffrom, fto, wr, c1, c2;
+	ssize_t rd;
 
 	if (ac != 3)
 	{
-		dprintf("Usage: cp file_from file_to\n");
+		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	op = open(av[1],O_RDONLY);
-	if (op == -1)
+	ffrom = open(av[1],O_RDONLY);
+	if (ffrom == -1)
 	{
-		dprintf("Error: Can't read from file %s\n", av[1]);
+		dprintf(2, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	rd = read(op, buf, BUFSIZE);
-	if (rd == -1)
+	fto = open(av[2], O_WRONLY | O_CREAT | O_TRUNC);
+	if (fto == -1)
 	{
 
+		exit(99);
 	}
+	while (rd = read(ffrom, buf, BUFSIZE) > 0)
+	{
+		if (write(fto, buf, rd) != rd)
+		{
+			dprintf(2, "Error: Can't write to %s\n", av[2]);
+			exit(99);
+		}
+	}
+	c1 = close(ffrom);
+	c2 = close(fto);
+	if (c1 == -1 )
+	{
+		dprintf(2, "Error: Can't close fd %d\n", ffrom);
+		exit(100);
+	}
+	if (c2 == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", fto);
+		exit(100);
+	}
+	return (0);
 }
