@@ -70,9 +70,8 @@ void error_2(int fd1, int fd2, char *filename)
 int main(int ac, char **av)
 {
 	char *buffer;
-	int file_from, file_to;
+	int file_from, file_to, c1, c2;
 	ssize_t rd;
-	int c1, c2;
 
 	buffer = malloc(sizeof(char) * BUFSIZE);
 	if (buffer == NULL)
@@ -109,6 +108,5 @@ int main(int ac, char **av)
 		error_3(file_from);
 	if (c2 == -1)
 		error_3(file_to);
-
 	return (0);
 }
