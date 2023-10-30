@@ -72,9 +72,9 @@ void error_2(int fd1, int fd2, char *filename)
 */
 int main(int ac, char **av)
 {
-	char *buffer;
+	char *buffer[BUFSIZE];
 	int file_from, file_to, c1, c2;
-	ssize_t rd;
+	ssize_t rd, wr;
 
 	if (ac != 3)
 	{
@@ -90,18 +90,18 @@ int main(int ac, char **av)
 	{
 		error_2(file_from, file_to, av[2]);
 	}
-	buffer = malloc(sizeof(char) * BUFSIZE);
-	if (buffer == NULL)
-		return (1);
 	while ((rd = read(file_from, buffer, BUFSIZE)) > 0)
 	{
-		if (write(file_to, buffer, rd) != rd)
+		wr = write(file_to, buffer, rd);
+		if (wr != rd)
 		{
-			free(buffer);
 			error_2(file_from, file_to, av[2]);
 		}
 	}
-	free(buffer);
+	if (rd == -1)
+		error_1(file_from, av[1]);
+	if (wr == -1)
+		error_2(file_from, file_to, av[2]);
 	c1 = close(file_from);
 	c2 = close(file_to);
 	if (c1 == -1)
