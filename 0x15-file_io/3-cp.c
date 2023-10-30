@@ -72,6 +72,7 @@ int main(int ac, char **av)
 	char *buffer;
 	int file_from, file_to;
 	ssize_t rd;
+	int c1, c2;
 
 	buffer = malloc(sizeof(char) * BUFSIZE);
 	if (buffer == NULL)
@@ -98,5 +99,12 @@ int main(int ac, char **av)
 		}
 	}
 	free(buffer);
+	c1 = close(file_from);
+	c2 = close(file_to);
+	if (c1 == -1)
+		error_3(file_from);
+	if (c2 == -1)
+		error_3(file_to);
+
 	return (0);
 }
