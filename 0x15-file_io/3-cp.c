@@ -2,12 +2,16 @@
 #define BUFSIZE 1024
 /**
  * error_3 - handles errors
- * @fd: file descriptor
+ * @file: file
 */
-void error_3(int fd)
+void error_3(int file)
 {
-		dprintf(STDERR_FILENO, "Error: can't close fd%d\n", fd);
+	if (file != -1)
+	{
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file);
+		close(file);
 		exit(100);
+	}
 }
 /**
  * error_0 - handles errors
