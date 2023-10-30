@@ -73,26 +73,23 @@ int main(int ac, char **av)
 	int file_from, file_to, c1, c2;
 	ssize_t rd;
 
-	buffer = malloc(sizeof(char) * BUFSIZE);
-	if (buffer == NULL)
-		return (1);
 	if (ac != 3)
 	{
-		free(buffer);
 		error_0();
 	}
 	file_from = open(av[1], O_RDONLY);
 	if (file_from == -1)
 	{
-		free(buffer);
 		error_1(file_from, av[1]);
 	}
 	file_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file_to == -1)
 	{
-		free(buffer);
 		error_2(file_from, file_to, av[2]);
 	}
+	buffer = malloc(sizeof(char) * BUFSIZE);
+	if (buffer == NULL)
+		return (1);
 	while ((rd = read(file_from, buffer, BUFSIZE)) > 0)
 	{
 		if (write(file_to, buffer, rd) != rd)
