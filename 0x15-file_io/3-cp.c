@@ -9,7 +9,6 @@ void error_3(int file)
 	if (file != -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file);
-		close(file);
 		exit(100);
 	}
 }
