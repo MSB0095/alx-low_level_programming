@@ -7,9 +7,13 @@
 void error_3(int file)
 {
 	if (file != -1)
+	{
+		dprintf(STDERR_FILENO, "Error: can't close fd%d\n", file);
+		exit(100);
 		close(file);
-	dprintf(STDERR_FILENO, "Error: can't close fd%d\n", file);
-	exit(100);
+	}
+
+
 }
 /**
  * error_0 - handles errors
@@ -51,6 +55,8 @@ int main(int ac, char **av)
 	ssize_t rd;
 
 	buffer = malloc(sizeof(char) * BUFSIZE);
+	if (buffer == NULL)
+		return (1);
 	if (ac != 3)
 	{
 		error_0();
@@ -70,7 +76,7 @@ int main(int ac, char **av)
 	{
 		if (write(file_to, buffer, rd) != rd)
 		{
-			error_2(av[1]);
+			error_2(av[2]);
 			close(file_from);
 		}
 	}
