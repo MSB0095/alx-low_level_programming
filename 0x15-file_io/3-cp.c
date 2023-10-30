@@ -33,7 +33,7 @@ void error_1(int fd1, char *filename)
 	int c1;
 
 	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
-	c1 = close(fd1 + 1);
+	c1 = close(fd1);
 	if (c1 == -1)
 	{
 		error_3(fd1);
@@ -51,8 +51,8 @@ void error_2(int fd1, int fd2, char *filename)
 	int c1, c2;
 
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
-	c1 = close(fd1 + 1);
-	c2 = close(fd2 + 1);
+	c1 = close(fd1);
+	c2 = close(fd2);
 	if (c1 == -1)
 	{
 		error_3(fd1);
