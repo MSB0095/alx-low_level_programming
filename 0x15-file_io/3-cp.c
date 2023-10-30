@@ -34,7 +34,6 @@ void error_1(int fd1, char *filename)
 	if (c1 == -1)
 	{
 		error_3(fd1);
-		return;
 	}
 	exit(98);
 }
@@ -54,12 +53,10 @@ void error_2(int fd1, int fd2, char *filename)
 	if (c1 == -1)
 	{
 		error_3(fd1);
-		return;
 	}
 	if (c2 == -1)
 	{
 		error_3(fd2);
-		return;
 	}
 	exit(99);
 }
