@@ -74,6 +74,7 @@ int main(int ac, char **av)
 			close(file_from);
 		}
 	}
+	free(buffer);
 	if (close(file_from) == -1)
 	{
 		error_3(file_from);
