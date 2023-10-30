@@ -25,20 +25,42 @@ void error_0(void)
 }
 /**
  * error_1 - handles errors
- * @file_from: file_from
+ * @fd1: file descriptor
+ * @filename: filename
 */
-void error_1(char *file_from)
+void error_1(int fd1, char *filename)
 {
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+	int c1;
+
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+	c1 = close(fd1);
+	if (c1 == -1)
+	{
+		error_3(fd1);
+	}
 	exit(98);
 }
 /**
  * error_2 - handles errors
- * @file_to: file_to
+ * @fd1: file descriptor
+ * @fd2: file descriptor
+ * @filename: filename
 */
-void error_2(char *file_to)
+void error_2(int fd1, int fd2, char *filename)
 {
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+	int c1, c2;
+
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+	c1 = close(fd1);
+	c2 = close(fd2);
+	if (c1 == -1)
+	{
+		error_3(fd1);
+	}
+	if (c2 == -1)
+	{
+		error_3(fd2);
+	}
 	exit(99);
 }
 /**
@@ -64,20 +86,18 @@ int main(int ac, char **av)
 	file_from = open(av[1], O_RDONLY);
 	if (file_from == -1)
 	{
-		error_1(av[1]);
+		error_1(file_from, av[1]);
 	}
 	file_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file_to == -1)
 	{
-		error_2(av[2]);
-		close(file_from);
+		error_2(file_from, file_to, av[2]);
 	}
 	while ((rd = read(file_from, buffer, BUFSIZE)) > 0)
 	{
 		if (write(file_to, buffer, rd) != rd)
 		{
-			error_2(av[2]);
-			close(file_from);
+			error_2(file_from, file_to, av[2]);
 		}
 	}
 	free(buffer);
