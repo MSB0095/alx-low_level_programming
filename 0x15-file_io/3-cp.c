@@ -86,7 +86,10 @@ int main(int ac, char **av)
 	{
 		error_1(file_from, av[1]);
 	}
-	file_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (open(av[2], O_WRONLY) != -1)
+		file_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	else
+		file_to = open(av[2], O_WRONLY | O_TRUNC);
 	if (file_to == -1)
 	{
 		error_2(file_from, file_to, av[2]);
