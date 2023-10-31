@@ -22,24 +22,24 @@ void print_elf(const char *file)
 	}
 
 	printf("ELF Header:\n");
-	printf("Magic: %02x %02x %02x %02x\n", elf_header.e_ident[EI_MAG0],
+	printf("  Magic:\t%02x %02x %02x %02x\n", elf_header.e_ident[EI_MAG0],
 	elf_header.e_ident[EI_MAG1],
 	elf_header.e_ident[EI_MAG2],
 	elf_header.e_ident[EI_MAG3]);
 	if (elf_header.e_ident[EI_CLASS] == ELFCLASS32)
-		printf("Class: ELF32\n");
+		printf("  Class:\tELF32\n");
 	else if (elf_header.e_ident[EI_CLASS] == ELFCLASS64)
-		printf("Class: ELF64\n");
-	printf("Data: %s\n",
+		printf("  Class:\tELF64\n");
+	printf("  Data:\t%s\n",
 	elf_header.e_ident[EI_DATA] == ELFDATA2LSB ?
 	"2's complement, little endian" : "2's complement, big endian");
-	printf("Version: %d\n", elf_header.e_ident[EI_VERSION]);
-	printf("OS/ABI: %s\n",
+	printf("  Version:\t%d\n", elf_header.e_ident[EI_VERSION]);
+	printf("  OS/ABI:\t%s\n",
 	elf_header.e_ident[EI_OSABI] == ELFOSABI_SYSV ?
 	"UNIX System V ABI" : "Unknown");
-	printf("ABI Version: %d\n", elf_header.e_ident[EI_ABIVERSION]);
-	printf("Type: %d\n", elf_header.e_type);
-	printf("Entry point address: 0x%lx\n", elf_header.e_entry);
+	printf("  ABI Version:\t%d\n", elf_header.e_ident[EI_ABIVERSION]);
+	printf("  Type:\t%d\n", elf_header.e_type);
+	printf("  Entry point address:\t0x%lx\n", elf_header.e_entry);
 
 	close(fd);
 }
