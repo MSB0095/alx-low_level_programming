@@ -1,6 +1,6 @@
 # add variables
-CC := gcc
-SRC := school.c main.c
+CC = gcc
+SRC = school.c main.c
 
 all: school.c main.c
 	${CC} ${SRC} -o school
