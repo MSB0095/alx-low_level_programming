@@ -1,0 +1,3 @@
+#My first Makefile
+all:
+    gcc *.c -o school
